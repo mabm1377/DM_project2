@@ -10,11 +10,17 @@ import os
 import json
 
 names_without_target = list(set(VARS.NAMES) - {'wealth'})
-
+converted_qualitative_data_to_quantitative_dict = {}
 
 def read_file(path):
     df = pd.read_csv(path, names=VARS.NAMES)
     return df
+
+
+def read_file2(path):
+    df = pd.read_csv(path)
+    return df
+
 
 
 def remove_missing_value(df, path):
@@ -26,7 +32,6 @@ def remove_missing_value(df, path):
 
 def convert_qualitative_data_to_quantitative(df, names,
                                              path_for_save_converted_qualitative_data_to_quantitative_dict):
-    converted_qualitative_data_to_quantitative_dict = {}
     for name in names:
         column = df[name]
         if column.dtype != "int64":
@@ -57,8 +62,6 @@ def json_from_txt(path):
 
 
 def back_quantitative_data_to_qualitative(df, path_for_save_converted_qualitative_data_to_quantitative_dict, path):
-    converted_qualitative_data_to_quantitative_dict = json_from_txt(
-        path_for_save_converted_qualitative_data_to_quantitative_dict)
     for name in converted_qualitative_data_to_quantitative_dict:
         k = converted_qualitative_data_to_quantitative_dict[name]
         df[name] = df[name].map(k)

@@ -1,0 +1,6 @@
+algorithms       accuracy_score    f1_score
+-------------  ----------------  ----------
+gaussian               0.790602    0.66822
+bernoulli              0.76373     0.581895
+svm                    0.77812     0.544905
+random_forest          0.855507    0.797088

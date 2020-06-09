@@ -27,11 +27,11 @@ def pre_process(project_directory):
                                                       pre_process_directory,
                                                       "converted_qualitative_data_to_quantitative_dict.txt"))
 
-    print("____________________draw_box_plot______________________________")
-    draw_box_plot(df=df, plots_directory=os.path.join(pre_process_directory, "plots"))
-
-    print("____________________remove_outliers______________________________")
-    remove_outliers(df=df, path=os.path.join(pre_process_directory, "removed_outliers_quantitative_data.csv"))
+    # print("____________________draw_box_plot______________________________")
+    # draw_box_plot(df=df, plots_directory=os.path.join(pre_process_directory, "plots"))
+    #
+    # print("____________________remove_outliers______________________________")
+    # remove_outliers(df=df, path=os.path.join(pre_process_directory, "removed_outliers_quantitative_data.csv"))
 
     print("____________________back_to_qualitative_______________________________")
     back_quantitative_data_to_qualitative(df=df.copy(),
